@@ -10,6 +10,7 @@ import { AuthService } from './_services/auth.service';
 import { TestService } from './_services/test.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.Interceptor';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
    ],
    providers: [
       AuthService,
-      TestService
+      TestService,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent
