@@ -11,12 +11,10 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): import('rxjs').Observable<import('@angular/common/http').HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError(error => {
-      // if (error.Status === 401) {
-      //   return throwError(error.StatusText);
+      if (error.status === 401) {
+        return throwError(error.StatusText);
 
-      // }
-
-      if(error instanceof HttpErrorResponse){
+      }else if(error instanceof HttpErrorResponse){
         const applicationError = error.headers.get('Application-Error');
 
         if(applicationError){

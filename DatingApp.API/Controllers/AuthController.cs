@@ -60,8 +60,8 @@ namespace DatingApp.API.Controllers
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
-               // return Unauthorized();
-               return StatusCode(404,"Invalid login credentials.");
+              //return Unauthorized();
+              return StatusCode(404,"Invalid login credentials.");
 
             var claims = new[]{
               new Claim(ClaimTypes.NameIdentifier,userFromRepo.Id.ToString()),
